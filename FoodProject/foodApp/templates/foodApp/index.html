@@ -1,0 +1,31 @@
+{% extends 'foodApp/base.html' %}
+
+{% block body %}
+    {% for item in item_list %}
+        <div class="row">
+            <div class="col-md-3 offset-md-2">
+                <img class="card" height="150px" src="{{ item.item_image }}"/>
+            </div>
+            <div class="col-md-4">
+                <h2>{{ item.item_name }}</h2>
+                <h3>{{ item.item_desc }}</h3>
+                <h4>₹{{ item.item_price }}</h4>
+                <h5>{{item.user_name}}</h5>
+
+            </div>
+            <div class="col-md-2">
+                <a href="{% url 'foodApp:detail' item.id %}" class="btn btn-success">Details</a>
+            </div>
+        </div>
+    {% endfor %}
+    {% endblock %}  
+    <!-- This is old code -->
+        <ul>
+            <li>
+                <a href="{% url 'foodApp:detail' qs.id %}">
+                    {{qs.id}}
+                    {{qs.item_name}}
+                </a>
+            </li>
+        </ul>
+ 
